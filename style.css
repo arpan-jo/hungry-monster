@@ -1,7 +1,14 @@
 * {
 	margin: 0 5px;
 }
-#food {
+.logo {
+	width: 100px;
+}
+.search-section {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.foods {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 10px;
@@ -14,8 +21,7 @@
 	text-align: center;
 	font-weight: 500;
 }
-/* .image,
-.image-container:hover {
-	color: red;
-	border-image: fill;
-} */
+
+#ingredients {
+	display: none;
+}

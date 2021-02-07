@@ -18,19 +18,9 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="#">
-						<img src="logo/panguine logo.png" alt="" />
+						<img class="logo" src="logo/foodlogo.jpg" alt="" />
+						<span>Hungry Monster</span>
 					</a>
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarNav"
-						aria-controls="navbarNav"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					>
-						<span class="navbar-toggler-icon"></span>
-					</button>
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav ms-auto">
 							<li class="nav-item">
@@ -51,13 +41,16 @@
 			</nav>
 		</header>
 		<main>
-			<section>
-				<input type="" placeholder="Food name" />
-				<button>Search</button>
+			<section class="search-section">
+				<input
+					id="foodSearch"
+					type=""
+					placeholder="List all meals by first letter"
+				/>
+				<button id="search">Search</button>
 			</section>
 			<section>
-				<div id="pop-up"></div>
-				<div id="food"></div>
+				<div class="foods" id="food"></div>
 			</section>
 		</main>
 		<script src="script.js"></script>
