@@ -25,3 +25,10 @@
 #ingredients {
 	display: none;
 }
+.ingredient {
+	width: 250px;
+	border-radius: 10px;
+}
+.ingredient-div {
+	text-align: center;
+}

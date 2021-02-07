@@ -41,17 +41,16 @@
 			</nav>
 		</header>
 		<main>
-			<section class="search-section">
+			<div class="search-section">
 				<input
-					id="foodSearch"
+					id="search"
 					type=""
 					placeholder="List all meals by first letter"
 				/>
-				<button id="search">Search</button>
-			</section>
-			<section>
-				<div class="foods" id="food"></div>
-			</section>
+				<button onclick="foodInput()">Search</button>
+			</div>
+			<div id="ingredientDiv"></div>
+			<div class="foods" id="food"></div>
 		</main>
 		<script src="script.js"></script>
 	</body>

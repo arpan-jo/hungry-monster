@@ -1,41 +1,50 @@
-document.getElementById('search').addEventListener('click', function () {
-	const names = document.getElementById('foodSearch');
-	foodSearch = names.value;
+const foodInput = () => {
+	const foodSearch = document.getElementById('search').value;
 	fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${foodSearch}`)
 		.then(response => response.json())
 		.then(data => showFood(data.meals));
-	document.getElementById('foodSearch').value = '';
-});
+	document.getElementById('search').value = '';
+};
+
 const showFood = foods => {
+	const container = document.getElementById('food');
 	foods.forEach(elements => {
-		const container = document.getElementById('food');
 		const foodContainer = document.createElement('div');
-		// const foodName = document.createElement('div');
-		foodContainer.innerHTML = `
-			<div onclick="${'showIngredients()'}">
-				<img id="images" class="image" src="${elements.strMealThumb}" alt="Food Image">
-				<p id="food-name" class="food-name">${elements.strMeal}</p>
-			</div>
-			<div id="ingredients">
-				<p>Ingredients</p>
-				<ul >
-					<li>${elements.strIngredient1}</li>
-					<li>${elements.strIngredient2}</li>
-					<li>${elements.strIngredient3}</li>
-					<li>${elements.strIngredient4}</li>
-					<li>${elements.strIngredient5}</li>
-					<li>${elements.strIngredient6}</li>
-					<li>${elements.strIngredient7}</li>
-					<li>${elements.strIngredient8}</li>
-					<li>${elements.strIngredient9}</li>
-					<li>${elements.strIngredient10}</li>
-				</ul>
-			</div>
-		`;
-		// foodContainer.appendChild(foodName);
+
+		const foodContainerDiv = `
+			<div onclick = "showIngredients('${elements.strMeal}')">
+				<img  class="image" src="${elements.strMealThumb}" alt="Food Image">
+				<p class="food-name">${elements.strMeal}</p>
+			</div>`;
+
+		foodContainer.innerHTML = foodContainerDiv;
 		container.appendChild(foodContainer);
 	});
 };
-function showIngredients() {
-	document.getElementById('ingredients').style.display = 'block';
-}
+
+const showIngredients = foodName => {
+	fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`)
+		.then(response => response.json())
+		.then(data => mealIngredientDetails(data.meals[0]));
+};
+const mealIngredientDetails = meals => {
+	console.log(meals);
+	const ingredientDiv = document.getElementById('ingredientDiv');
+	ingredientDiv.innerHTML = `
+		<div class="ingredient-div">
+			<img class="ingredient" src = "${meals.strMealThumb}">
+        <h3>${meals.strMeal}</h3>
+        <h4>Ingredients</h4>
+		  <p>${meals.strIngredient1}</p>
+        <p>${meals.strIngredient2}</p>
+        <p>${meals.strIngredient3}</p>
+        <p>${meals.strIngredient4}</p>
+        <p>${meals.strIngredient5}</p>
+        <p>${meals.strIngredient6}</p>
+        <p>${meals.strIngredient7}</p>
+        <p>${meals.strIngredient8}</p>
+        <p>${meals.strIngredient9}</p>
+        <p>${meals.strIngredient10}</p>
+		</div>
+    `;
+};
