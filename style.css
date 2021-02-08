@@ -38,10 +38,14 @@ span {
 .ingredientImage {
   width: 200px;
   border-radius: 10px;
+  margin-top: 30%;
 }
 .ingredient-show {
-  margin-left: 25%;
+  margin: 2% 30% 2% 30%;
   display: flex;
+  justify-content: space-around;
+  background-color: gainsboro;
+  border-radius: 10px;
 }
 ol {
   list-style: none;

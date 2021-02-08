@@ -39,11 +39,12 @@ const mealIngredientDetails = meals => {
   ingredientDiv.innerHTML = `
 		<div class="ingredient-show">
 			<div class="ingredient-div">
-				<p class="food-name">${meals.strMeal}</p>
 				<img class="ingredientImage" src = "${meals.strMealThumb}">	
+        <p class="food-name">${meals.strMeal}</p>
 			</div>
 			<div>
-				<ol>
+				<ol >
+          <p class="food-name">Ingredients</p>
 					<li>${meals.strIngredient1}</li>
 					<li>${meals.strIngredient2}</li>
 					<li>${meals.strIngredient3}</li>
