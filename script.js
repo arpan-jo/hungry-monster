@@ -58,7 +58,4 @@ const mealIngredientDetails = meals => {
 			</div>
 		</div>
     `;
-  if (li.innerHTML === "" || null) {
-    this.style.display = "none";
-  }
 };
