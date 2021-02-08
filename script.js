@@ -1,10 +1,16 @@
 // get foods from search input
 const foodInput = () => {
   const foodSearch = document.getElementById("searchFood").value;
-  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${foodSearch}`)
-    .then(response => response.json())
-    .then(data => showFood(data.meals));
-  document.getElementById("searchFood").value = "";
+  if (foodSearch === "") {
+    document.getElementById("food-ingredient").style.display = "none";
+    alert("Search something");
+  } else {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${foodSearch}`)
+      .then(response => response.json())
+      .then(data => showFood(data.meals))
+      .catch(error => console.log(error));
+    document.getElementById("searchFood").value = "";
+  }
 };
 
 // show foods after click search
@@ -12,7 +18,6 @@ const showFood = foods => {
   const container = document.getElementById("food");
   foods.forEach(elements => {
     const foodContainer = document.createElement("div");
-
     const foodContainerDiv = `
 			<div onclick = "showIngredients('${elements.strMeal}')">
 				<img  class="image" src="${elements.strMealThumb}" alt="Food Image">
@@ -30,7 +35,6 @@ const showIngredients = foodName => {
     .then(data => mealIngredientDetails(data.meals[0]));
 };
 const mealIngredientDetails = meals => {
-  console.log(meals);
   const ingredientDiv = document.getElementById("ingredientDiv");
   ingredientDiv.innerHTML = `
 		<div class="ingredient-show">
@@ -54,4 +58,7 @@ const mealIngredientDetails = meals => {
 			</div>
 		</div>
     `;
+  if (li.innerHTML === "" || null) {
+    this.style.display = "none";
+  }
 };
