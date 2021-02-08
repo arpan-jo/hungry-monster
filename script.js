@@ -13,9 +13,13 @@ const foodInput = () => {
   }
 };
 
-// show foods after click search
+// this function for show foods after click search
 const showFood = foods => {
   const container = document.getElementById("food");
+  container.innerHTML = "";
+  // previous ingredients hide if click search button
+  const ingredient = document.getElementById("ingredientDiv");
+  ingredient.innerHTML = "";
   foods.forEach(elements => {
     const foodContainer = document.createElement("div");
     const foodContainerDiv = `
